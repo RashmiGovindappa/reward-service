@@ -48,16 +48,19 @@ Example response:
 ## Project structure
 
 ```text
-src/main/java/com/example/rewards/       Application entry point
-src/main/java/com/example/rewards/controller/ REST endpoints
-src/main/java/com/example/rewards/service/    Reward calculation and aggregation
-src/main/java/com/example/rewards/repository/ Purchase database queries
-src/main/java/com/example/rewards/entity/     JPA purchase entity
-src/main/java/com/example/rewards/dto/        API response records
-src/main/resources/application.properties H2 and SQL initialization configuration
-src/main/resources/schema.sql             Purchase table schema and nonnegative amount constraint
-src/main/resources/data.sql               Sample purchases for three customers across three months
-src/test/java/com/example/rewards/        Calculation unit tests and REST integration tests
+src/main/java/com/example/rewards/                 Application entry point
+src/main/java/com/example/rewards/controller/      REST controller
+src/main/java/com/example/rewards/service/         Reward calculation and aggregation
+src/main/java/com/example/rewards/repository/      Purchase database queries
+src/main/java/com/example/rewards/entity/          JPA purchase entity
+src/main/java/com/example/rewards/dto/             API response records
+src/main/resources/application.properties          H2 and SQL initialization configuration
+src/main/resources/schema.sql                      Purchase table schema and amount constraint
+src/main/resources/data.sql                        Sample purchases across three customers and months
+src/test/java/com/example/rewards/RewardsServiceTest.java
+                                                    Transaction reward calculation unit tests
+src/test/java/com/example/rewards/RewardsControllerTest.java
+                                                    REST and database integration tests
 ```
 
 `RewardsService` computes transaction points and aggregates by `YearMonth`. `PurchaseRepository` retrieves transactions within the inclusive date window. The controller validates date ordering and Spring validates date syntax. Database SQL provides the sample data instead of application-level hard-coded transactions.
@@ -66,10 +69,10 @@ The response DTOs are Java records. Lombok generates the entity accessors and th
 
 ## Tests
 
-Run the unit and integration suite with:
+Run the unit and integration tests with:
 
 ```bash
 mvn test
 ```
 
-Tests cover tier boundaries, fractional amounts, negative amount rejection, multiple customers and transactions, monthly/total aggregation, invalid and reversed dates, and an empty result interval. Build output (`target/`) and IDE output are excluded by `.gitignore`.
+`RewardsServiceTest` covers tier boundaries, fractional amounts, and negative amount rejection. `RewardsControllerTest` covers multiple customers and transactions, monthly and total aggregation, invalid and reversed dates, and an empty result interval. Build output (`target/`) and IDE output are excluded by `.gitignore`.
