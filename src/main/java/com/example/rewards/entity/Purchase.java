@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.Getter;
 
 /** A recorded purchase used to calculate customer reward points. */
 @Entity
@@ -14,20 +15,16 @@ import java.time.LocalDate;
 public class Purchase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Getter
     private Long customerId;
+    @Getter
     private String customerName;
+    @Getter
     private BigDecimal amount;
+    @Getter
     private LocalDate purchaseDate;
 
     /** Provides the no-argument constructor required by JPA entity loading. */
     protected Purchase() { }
 
-    /** Returns the customer identifier. */
-    public Long getCustomerId() { return customerId; }
-    /** Returns the customer display name. */
-    public String getCustomerName() { return customerName; }
-    /** Returns the purchase amount. */
-    public BigDecimal getAmount() { return amount; }
-    /** Returns the purchase date. */
-    public LocalDate getPurchaseDate() { return purchaseDate; }
 }

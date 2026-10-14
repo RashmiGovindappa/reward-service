@@ -1,6 +1,9 @@
 package com.example.rewards.dto;
 
+import lombok.Getter;
+
 /** Carries one customer's reward points for a calendar month. */
+@Getter
 public class MonthlyRewards {
     private final String month;
     private final long points;
@@ -11,9 +14,4 @@ public class MonthlyRewards {
         this.points = points;
     }
 
-    /** Returns the calendar month label. */
-    public String getMonth() { return month; }
-
-    /** Returns the reward points earned in this month. */
-    public long getPoints() { return points; }
 }
