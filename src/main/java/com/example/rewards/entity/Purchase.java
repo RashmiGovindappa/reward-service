@@ -7,11 +7,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /** A recorded purchase used to calculate customer reward points. */
 @Entity
 @Table(name = "purchases")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Purchase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,8 +26,5 @@ public class Purchase {
     private BigDecimal amount;
     @Getter
     private LocalDate purchaseDate;
-
-    /** Provides the no-argument constructor required by JPA entity loading. */
-    protected Purchase() { }
 
 }
