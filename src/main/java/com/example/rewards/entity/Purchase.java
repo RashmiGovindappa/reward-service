@@ -19,15 +19,8 @@ public class Purchase {
     private BigDecimal amount;
     private LocalDate purchaseDate;
 
+    /** Provides the no-argument constructor required by JPA entity loading. */
     protected Purchase() { }
-
-    /** Creates an entity for the supplied purchase record. */
-    public Purchase(Long customerId, String customerName, BigDecimal amount, LocalDate purchaseDate) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.amount = amount;
-        this.purchaseDate = purchaseDate;
-    }
 
     /** Returns the customer identifier. */
     public Long getCustomerId() { return customerId; }
