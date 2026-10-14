@@ -10,18 +10,16 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/** Calculates per-transaction points and aggregates them by customer and month. */
 @Service
 public class RewardsService {
     private static final BigDecimal FIFTY = BigDecimal.valueOf(50);
     private static final BigDecimal HUNDRED = BigDecimal.valueOf(100);
     private static final DateTimeFormatter MONTH_FORMAT = DateTimeFormatter.ofPattern("MMMM uuuu");
-    private final PurchaseRepository repository;
-
-    /** Creates a rewards service backed by the purchase repository. */
-    public RewardsService(PurchaseRepository repository) { this.repository = repository; }
+    @Autowired
+    private PurchaseRepository repository;
 
     /** Calculates monthly and total points for all customers in an inclusive period. */
     public Map<Long, CustomerRewards> calculate(LocalDate start, LocalDate end) {

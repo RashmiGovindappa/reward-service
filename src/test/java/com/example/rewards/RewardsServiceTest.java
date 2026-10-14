@@ -1,21 +1,14 @@
 package com.example.rewards;
 
-import com.example.rewards.repository.PurchaseRepository;
 import com.example.rewards.service.RewardsService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
 import java.math.BigDecimal;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for transaction tier calculations. */
 class RewardsServiceTest {
-    private RewardsService service;
-
-    /** Creates a service with an unused mocked repository. */
-    @BeforeEach
-    void setUp() { service = new RewardsService(mock(PurchaseRepository.class)); }
+    private final RewardsService service = new RewardsService();
 
     /** Covers boundaries and fractional amounts across both tiers. */
     @Test
