@@ -13,11 +13,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/** Calculates per-transaction reward points and aggregates them by customer and month. */
 @Service
 public class RewardsService {
     private static final BigDecimal FIFTY = BigDecimal.valueOf(50);
     private static final BigDecimal HUNDRED = BigDecimal.valueOf(100);
     private static final DateTimeFormatter MONTH_FORMAT = DateTimeFormatter.ofPattern("MMMM uuuu");
+
     @Autowired
     private PurchaseRepository repository;
 

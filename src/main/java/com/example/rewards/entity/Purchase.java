@@ -11,6 +11,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/** Stores a customer purchase used in reward calculations. */
 @Entity
 @Table(name = "purchases")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,5 +23,4 @@ public class Purchase {
     private String customerName;
     private BigDecimal amount;
     private LocalDate purchaseDate;
-
 }

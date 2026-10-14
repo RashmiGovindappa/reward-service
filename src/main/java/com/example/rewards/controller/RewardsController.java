@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+/** Handles HTTP requests for customer reward summaries. */
 @RestController
 public class RewardsController {
-    private final RewardsService service;
 
-    /** Creates the controller with its calculation service. */
     @Autowired
-    public RewardsController(RewardsService service) { this.service = service; }
+    private RewardsService service;
 
-    /** Returns monthly and total rewards for an inclusive ISO date range. */
+    /** Returns monthly and total points for the inclusive date range. */
     @GetMapping("/api/rewards")
     public Map<Long, CustomerRewards> rewards(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
