@@ -6,11 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
-/** Unit tests for reward point tier calculations. */
 class RewardsServiceTest {
     private final RewardsService service = new RewardsService();
 
-    /** Verifies points at the tier boundaries and for fractional dollar amounts. */
     @Test
     void calculatesTierBoundaries() {
         assertEquals(0, service.rewardPoints(new BigDecimal("0.00")));
@@ -21,7 +19,6 @@ class RewardsServiceTest {
         assertEquals(90, service.rewardPoints(new BigDecimal("120.00")));
     }
 
-    /** Verifies negative transaction amounts are rejected. */
     @Test
     void rejectsNegativeAmount() {
         assertThrows(IllegalArgumentException.class, () -> service.rewardPoints(new BigDecimal("-1.00")));
