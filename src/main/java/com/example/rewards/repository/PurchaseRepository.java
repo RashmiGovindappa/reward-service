@@ -1,5 +1,6 @@
-package com.example.rewards;
+package com.example.rewards.repository;
 
+import com.example.rewards.entity.Purchase;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;

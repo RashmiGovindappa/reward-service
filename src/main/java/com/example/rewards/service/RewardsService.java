@@ -1,5 +1,9 @@
-package com.example.rewards;
+package com.example.rewards.service;
 
+import com.example.rewards.dto.CustomerRewards;
+import com.example.rewards.dto.MonthlyRewards;
+import com.example.rewards.entity.Purchase;
+import com.example.rewards.repository.PurchaseRepository;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.YearMonth;

@@ -48,7 +48,12 @@ Example response:
 ## Project structure
 
 ```text
-src/main/java/com/example/rewards/       Application, REST controller, service, entity, repository, DTOs
+src/main/java/com/example/rewards/       Application entry point
+src/main/java/com/example/rewards/controller/ REST endpoints
+src/main/java/com/example/rewards/service/    Reward calculation and aggregation
+src/main/java/com/example/rewards/repository/ Purchase database queries
+src/main/java/com/example/rewards/entity/     JPA purchase entity
+src/main/java/com/example/rewards/dto/        API response records
 src/main/resources/application.properties H2 and SQL initialization configuration
 src/main/resources/schema.sql             Purchase table schema and nonnegative amount constraint
 src/main/resources/data.sql               Sample purchases for three customers across three months

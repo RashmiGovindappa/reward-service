@@ -1,5 +1,7 @@
-package com.example.rewards;
+package com.example.rewards.controller;
 
+import com.example.rewards.dto.CustomerRewards;
+import com.example.rewards.service.RewardsService;
 import java.time.LocalDate;
 import java.util.Map;
 import org.springframework.format.annotation.DateTimeFormat;

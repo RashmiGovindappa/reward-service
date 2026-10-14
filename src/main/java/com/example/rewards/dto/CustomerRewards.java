@@ -1,4 +1,4 @@
-package com.example.rewards;
+package com.example.rewards.dto;
 
 import java.util.List;
 

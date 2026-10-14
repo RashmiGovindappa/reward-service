@@ -1,5 +1,7 @@
 package com.example.rewards;
 
+import com.example.rewards.repository.PurchaseRepository;
+import com.example.rewards.service.RewardsService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
