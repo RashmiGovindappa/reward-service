@@ -11,20 +11,16 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-/** A recorded purchase used to calculate customer reward points. */
 @Entity
 @Table(name = "purchases")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Purchase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Getter
     private Long customerId;
-    @Getter
     private String customerName;
-    @Getter
     private BigDecimal amount;
-    @Getter
     private LocalDate purchaseDate;
 
 }
