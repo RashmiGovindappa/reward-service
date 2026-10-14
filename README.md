@@ -62,7 +62,7 @@ src/test/java/com/example/rewards/        Calculation unit tests and REST integr
 
 `RewardsService` computes transaction points and aggregates by `YearMonth`. `PurchaseRepository` retrieves transactions within the inclusive date window. The controller validates date ordering and Spring validates date syntax. Database SQL provides the sample data instead of application-level hard-coded transactions.
 
-Lombok generates DTO getters and all-arguments constructors, plus the protected no-argument constructor required by JPA. In IntelliJ, enable annotation processing if generated members are reported as unresolved.
+The response DTOs are Java records. Lombok generates the entity accessors and the protected no-argument constructor required by JPA. In IntelliJ, enable annotation processing if generated entity members are reported as unresolved.
 
 ## Tests
 
